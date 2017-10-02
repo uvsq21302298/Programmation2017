@@ -1,1 +1,3 @@
-# SimpleFraction
+# COMPLEMENT DE PROGRAMMATION, CPOO, TOD.
+Thibault CHOUIPE
+2017 - 1018
