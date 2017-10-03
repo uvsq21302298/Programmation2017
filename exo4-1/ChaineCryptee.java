@@ -1,46 +1,63 @@
 
 /**
- * Write a description of class ChaineCryptee here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Thibault CHOUIPE 21302298
  */
 public class ChaineCryptee
 {
-    // instance variables - replace the example below with your own
-    private String enclair;
+    private String encrypte;
     private int decalage;
-
     /**
      * Constructor for objects of class ChaineCryptee
      */
-    public ChaineCryptee(String enclair, int decalage)
+    //en private car pas de besoin utilisateur
+    private ChaineCryptee(String enclair, int decalage)
     {
-        // initialise instance variables
-        this.enclair = toUpperCase().enclair;
+        int i;
+        StringBuilder str = new StringBuilder();
+        
+        if(enclair != null) {
+            for(i = 0; i < enclair.length(); i++) {
+                str.append(decalagechar(enclair.toUpperCase().charAt(i), decalage));
+            }
+        }
+        this.encrypte = str.toString();
         this.decalage = decalage;
     }
-    public char decalagechar(char c, int decalage){  
+    //en private car pas de besoin utilisateur
+    private static char decalagechar(char c, int decalage){  
             return (c < 'A' || c > 'Z' ) ? c : (char) ((( c - 'A' + decalage) % 26) + 'A');
     }
     
+    public static ChaineCryptee FromCrypted(String encrypte, int decalage) { 
+        int i;
+        StringBuilder str = new StringBuilder();
+        if(encrypte != null) {
+            for(i = 0; i < encrypte.length(); i++) {
+                str.append(decalagechar(encrypte.toUpperCase().charAt(i), - decalage));
+            }
+        }
+        ChaineCryptee chainec = new ChaineCryptee(str.toString(), decalage);
+        return chainec;
+    }
+    
+    public static ChaineCryptee FromDecrypted(String enclair, int decalage) {
+        ChaineCryptee chainec = new ChaineCryptee(enclair, decalage);
+        return chainec;
+    }
     
     public String Decrypte()
     {
-        // put your code here
-        return enclair;
+        int i;
+        StringBuilder str = new StringBuilder();
+        
+        for(i = 0; i < encrypte.length(); i++) {
+            str.append(decalagechar(encrypte.toUpperCase().charAt(i), - decalage));
+        }
+        return str.toString();
     }
-    
     
     public String Crypte()
     {
-        int i; char c;
-        String crypte = "";
-        String encrypte = enclair;
-        for(i=0;i<encrypte.length(); i++){
-            c = decalagechar(enclair.charAt(i),decalage);
-            crypte = crypte + c;
-        }
         return encrypte;
     }
 }
