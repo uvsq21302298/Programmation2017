@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Serveur()
+comment0.text=\n\ Constructeur\ d'objets\ de\ classe\ Serveur\n
+comment1.params=message
+comment1.target=void\ diffuser(java.lang.String)
+numComments=2
