@@ -1,44 +1,35 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
-/**
- * Write a description of class Repertoire here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Repertoire extends Composant
+
+public class Repertoire extends Composant //repertoire hérite de composants
 {
-    // instance variables - replace the example below with your own
-    private ArrayList<Composant> composants;
+    private ArrayList<Composant> composants; //liste de composants
 
     /**
      * Constructor for objects of class Repertoire
      */
     public Repertoire(String nom)
     {
-        this.setNom(nom);
+        this.nom = nom;
         this.composants = new ArrayList<Composant>();
     }
     
     public boolean contient(Composant comp) {
-        Iterator<Composant> liste_comp = composants.iterator();
+        Iterator<Composant> liste_composant = composants.iterator(); // on affecte la liste composants a une nouvelle liste qu'on peut parcourir
         Composant tmp;
         
-        while(liste_comp.hasNext()) {
-            tmp = liste_comp.next();
-            
+        while(liste_composant.hasNext()) {
+            tmp = liste_composant.next();
             if(tmp.equals(comp)){
                 return true;
             }
             else if(tmp instanceof Repertoire) {
-                //On teste récursivement si comp est dans un sous-repertoire
-                 if(((Repertoire) tmp).contient(comp)) {
+                 if(((Repertoire)tmp).contient(comp)) { //On teste de facon récursive si comp est dans un sous-repertoire
                     return true;
                 }
             }
         }
-        //On a parcouru dans tout le répertoire
         return false;
     }
     
@@ -47,7 +38,7 @@ public class Repertoire extends Composant
         if(this.contient(comp)) {
             return false;
         }
-        else if((comp instanceof Repertoire) && (((Repertoire) comp).contient(this))) {
+        else if((comp instanceof Repertoire) && (((Repertoire) comp).contient(this))) { //cast nécessaire pour le compilateur (car le type n'et connu que pdt execution)
             return false;
         }
         else {
@@ -62,11 +53,11 @@ public class Repertoire extends Composant
     
     public int calculTaille()
     {
-        Iterator<Composant> liste_comp = composants.iterator();
+        Iterator<Composant> liste_composant = composants.iterator();
         int somme = 0;
         
-        while(liste_comp.hasNext()) {
-            somme += liste_comp.next().calculTaille(); 
+        while(liste_composant.hasNext()) {
+            somme = somme + liste_composant.next().calculTaille(); 
         }
         return somme;
     }

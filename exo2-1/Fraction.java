@@ -8,8 +8,8 @@
 public class Fraction
 {
     // instance variables - replace the example below with your own
-    private double num;
-    private double denum;
+    private int num;
+    private int denum;
     /**
      * Constructor for objects of class Fraction
      */
@@ -19,14 +19,11 @@ public class Fraction
         this.denum = 2;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
     public String toString()
     {
-        return Double.valueOf(num).toString() + " / " + Double.valueOf(denum).toString();
+        String a; String b;
+        a = String.valueOf(num);
+        b = String.valueOf(denum);
+        return a + " / " + b;
     }
 }

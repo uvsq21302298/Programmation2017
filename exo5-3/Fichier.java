@@ -16,7 +16,7 @@ public class Fichier extends Composant
     public Fichier(String nom, int taille)
     {
         // initialise instance variables
-        this.setNom(nom);
+        this.nom = nom;
         this.taille = taille;
     }
 

@@ -3,19 +3,19 @@ import java.util.Iterator;
 
 public class Serveur
 {
-    private ArrayList<Client> clients; //liste de client connecté
+    private ArrayList<Client> clients; //liste "clients" de client connectés
     
     /**
      * Constructeur d'objets de classe Serveur
      */
     public Serveur()
     {
-        clients = new ArrayList<Client>();
+        clients = new ArrayList<Client>(); // On affecte a la liste clients une nouvelle liste client vide
     }
 
     public boolean connecter(Client client)
     {
-        if(clients.contains(client)) {  //Le client est déja connecter
+        if(clients.contains(client)) {  //Le client est déja connecter (déja dans la 
             return false;
         }
         else {
@@ -25,10 +25,10 @@ public class Serveur
     
     public void diffuser(String message)
     {
-        Iterator<Client> liste_clients = clients.iterator(); //création d'une liste qu'on peut parcourir avec iterator
+        Iterator<Client> liste_clients = clients.iterator(); // On affecte la liste clients a une liste itérative qu'on peut parcourir.
         
-        while(liste_clients.hasNext()) {
-            liste_clients.next().recevoir(message);   //Tant que j'ai des clients dans la liste, je leurs envoient le message
+        while(liste_clients.hasNext()) { //tant que la liste a un suivant
+            liste_clients.next().recevoir(message);   
         }
     }
 }
