@@ -11,7 +11,12 @@ public class Main
      */
     public static void main(String args[])
     {
-        System.out.println("test main");
-		
+        Fichier fic = new Fichier("doc",3);    
+        System.out.println(fic.calculTaille());
+        Fichier fic2 = new Fichier("doc",3);
+        Repertoire rep = new Repertoire("repository");
+        rep.ajouter(fic);
+        rep.ajouter(fic2);
+        System.out.println(rep.calculTaille());
     }
 }

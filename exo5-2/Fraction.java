@@ -81,9 +81,7 @@ public class Fraction implements Comparable<Fraction>
     }
     
     /**
-     * Comparer deux nombres revient à comparer le signe de leur différence
-     * 
-     * @return -1 if this is less than object, +1 if this is greater than object, 0 if they are equal.
+     * Compare deux nombres : -1 si plus petit, +1 si plus grand, 0 si c'est égal.
      */
     public int compareTo(Fraction o)
     {
