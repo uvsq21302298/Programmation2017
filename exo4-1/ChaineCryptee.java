@@ -13,11 +13,11 @@ public class ChaineCryptee
     private ChaineCryptee(String enclair, int decalage)
     {
         int i;
-        StringBuilder str = new StringBuilder();
+        StringBuilder str = new StringBuilder(); // string particulier car on peut le modifier. (pour que sa soit immuable, convertir en string)
         
         if(enclair != null) {
             for(i = 0; i < enclair.length(); i++) {
-                str.append(decalagechar(enclair.toUpperCase().charAt(i), decalage));
+                str.append(decalagechar(enclair.toUpperCase().charAt(i), decalage)); // str.append permet d'ajouter des caractères a un string
             }
         }
         this.encrypte = str.toString();
